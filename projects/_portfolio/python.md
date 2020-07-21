@@ -1,7 +1,7 @@
 ---
 title: "Python Projects"
 layout: collection
-permalink: /python/
+#permalink: /python/
 collection: python
 entries_layout: grid
 classes: wide

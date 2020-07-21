@@ -34,6 +34,7 @@ timezone: America/Chicago # https://en.wikipedia.org/wiki/List_of_tz_database_ti
 
 include:
   - _pages
+  - _portfolio
   - _bikedfw
   - _python
   - _travel
