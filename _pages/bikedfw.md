@@ -1,7 +1,7 @@
 ---
 title: "BikeDFW"
 layout: collection
-permalink: /Projects/BikeDFW/
+permalink: /bikedfw/
 collection: bikedfw
 entries_layout: grid
 classes: wide
