@@ -1,1 +1,1 @@
-A site built with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+A personal site built with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes) using the [Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter).
