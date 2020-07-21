@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "White Rock Lake Trails & Features"
 excerpt: "RideWithGPS map embed showing White Rock Lake area bike paths with BikeDFW's recommended routes to nearby businesses and the locations of useful features like water fountains and repair stations."
 header:

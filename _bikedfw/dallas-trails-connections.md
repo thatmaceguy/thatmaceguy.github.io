@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "Dallas Trails & Connections"
 excerpt: "RideWithGPS map embed showing Dallas area off-street or protected bike paths with BikeDFW's recommended routes between them and through areas without bike infrastructure."
 header:
