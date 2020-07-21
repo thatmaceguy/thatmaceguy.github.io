@@ -1,5 +1,5 @@
 ---
-permalink: /bikedfw/
+permalink: /projects/bikedfw/
 title: "BikeDFW"
 ---
 
