@@ -3,6 +3,7 @@ title: "Post: Standard"
 excerpt_separator: "<!--more-->"
 categories:
   - blog
+  - demo
 tags:
   - mm examples
   - post formats

@@ -27,6 +27,7 @@ markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
+breadcrumbs: true # disabled by default
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: America/Chicago # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -63,15 +64,15 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://thatmaceguy.github.io"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/thatmaceguy"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/thatmaceguy"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thatmaceguy"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/thatmaceguy"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/thatmaceguy"    
 
 footer:
   links:
@@ -111,5 +112,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-breadcrumbs: true # disabled by default

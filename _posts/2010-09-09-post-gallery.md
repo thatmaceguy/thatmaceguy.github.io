@@ -2,6 +2,7 @@
 title: "Post: Gallery"
 categories:
   - blog
+  - demo
 tags:
   - mm examples
   - post formats
