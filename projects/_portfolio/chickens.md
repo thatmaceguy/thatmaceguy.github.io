@@ -1,7 +1,7 @@
 ---
 title: "Backyard Chickens"
 layout: collection
-#permalink: /chickens/
+# permalink: /chickens/
 collection: chickens
 entries_layout: grid
 classes: wide
