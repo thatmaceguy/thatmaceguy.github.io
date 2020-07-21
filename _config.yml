@@ -58,11 +58,11 @@ plugins:
 author:
   name   : "Christopher Mace"
   avatar : "/assets/images/profile_pic_500w.png"
-  bio    : "Geoscientist | Cyclist | DIYer"
+  bio    : "Geoscientist Cyclist DIYer"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "thatmaceguy.github.ic"
+      url: "https://thatmaceguy.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/thatmaceguy"
