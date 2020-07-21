@@ -1,7 +1,7 @@
 ---
 title: Backyard Chickens
 layout: collection
-permalink: /projects/chickens/
+# permalink: /projects/chickens/
 collection: chickens
 entries_layout: grid
 classes: wide
