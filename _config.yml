@@ -95,19 +95,19 @@ collections_dir: projects
 collections:
   portfolio:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:collection/:path/
   bikedfw:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:collection/:path/
   travel:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:collection/:path/
   chickens:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:collection/:path/
   python:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:collection/:path/
 
 defaults:
   # _posts

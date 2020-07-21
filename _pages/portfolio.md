@@ -1,7 +1,7 @@
 ---
 title: "Projects Portfolio"
 layout: collection
-# permalink: /portfolio/
+permalink: /projects/portfolio/
 collection: portfolio
 entries_layout: grid
 classes: wide
