@@ -91,11 +91,8 @@ footer:
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thatmaceguy"
 
-collections_dir: projects
+collections_dir: /projects/
 collections:
-  portfolio:
-    output: true
-    permalink: /projects/:collection/:path/
   bikedfw:
     output: true
     permalink: /projects/:collection/:path/
