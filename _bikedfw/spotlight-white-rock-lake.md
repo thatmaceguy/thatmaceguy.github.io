@@ -1,10 +1,12 @@
 ---
 layout: single
+classes: 
+  - wide
 title: "White Rock Lake Trails & Features"
 excerpt: "RideWithGPS map embed showing White Rock Lake area bike paths with BikeDFW's recommended routes to nearby businesses and the locations of useful features like water fountains and repair stations."
 header:
     image: # full size header image for page
-    teaser: http://placehold.it/350x250 # thumbnail for index page
+    teaser: http://placehold.it/600x400 # thumbnail for index page
 sidebar:
   - title: "Title A"
     image: http://placehold.it/350x250
