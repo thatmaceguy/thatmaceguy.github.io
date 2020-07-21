@@ -91,7 +91,7 @@ footer:
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thatmaceguy"
 
-collections_dir: /projects/
+collections_dir: projects
 collections:
   bikedfw:
     output: true
