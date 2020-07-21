@@ -1,9 +1,10 @@
 ---
 title: "Post: Notice"
 categories:
-  - Blog
+  - blog
 tags:
-  - Post Formats
+  - mm examples
+  - post formats
   - notice
 ---
 

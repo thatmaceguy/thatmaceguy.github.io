@@ -1,9 +1,7 @@
 ---
-permalink: /projects/
 title: "Projects"
+permalink: /projects/
 ---
-
-Portfolio / pojects index placeholder.
 
 [BikeDFW](https://thatmaceguy.github.io/projects/bikedfw/)
 : demo page for RideWithGPS map embeds.

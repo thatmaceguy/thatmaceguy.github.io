@@ -1,9 +1,10 @@
 ---
 title: "Post: Quote"
 categories:
-  - Blog
+  - blog
 tags:
-  - Post Formats
+  - mm examples
+  - post formats
   - quote
 ---
 
