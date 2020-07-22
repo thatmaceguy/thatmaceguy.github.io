@@ -1,10 +1,12 @@
 ---
-title: "Backyard Chickens"
+date: 2020-07-21T23:00:15.072Z
+
 layout: collection
-# permalink: /projects/chickens/
 collection: chickens
 entries_layout: grid
 classes: wide
-date: 2020-07-21T23:00:15.072Z
+
+title: "Backyard Chickens"
+permalink: /projects/chickens/
 ---
 Collection of backyard chicken-keeping projects.
