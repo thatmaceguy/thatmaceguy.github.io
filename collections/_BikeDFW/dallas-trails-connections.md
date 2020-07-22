@@ -6,7 +6,7 @@ title: "Dallas Trails & Connections"
 excerpt: "RideWithGPS map embed showing Dallas area off-street or protected bike paths with BikeDFW's recommended routes between them and through areas without bike infrastructure."
 header:
     image: # full size header image for page
-    teaser: http://placehold.it/600x400 # thumbnail for index page
+    teaser: /assets/images/dallas_trails.png # thumbnail for index page
 sidebar:
   - title: "Title A"
     image: http://placehold.it/350x250
