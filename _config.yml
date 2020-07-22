@@ -34,7 +34,6 @@ timezone: America/Chicago # https://en.wikipedia.org/wiki/List_of_tz_database_ti
 
 include:
   - _pages
-  - _portfolio
   - _bikedfw
   - _python
   - _travel
@@ -91,9 +90,9 @@ footer:
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thatmaceguy"
 
-collections_dir: projects
+collections_dir: collections
 collections:
-  bikedfw:
+  BikeDFW:
     output: true
     permalink: /projects/:collection/:path/
   travel:
@@ -125,16 +124,16 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # projects
-  - scope:
-      path: "projects"
-      type: pages
-    values:
-      layout: single
-      author_profile: false
-      share: false
-      sidebar:
-        nav: "projects"
+  # # collections
+  # - scope:
+  #     path: "collections"
+  #     type: pages
+  #   values:
+  #     layout: single
+  #     author_profile: false
+  #     share: false
+  #     sidebar:
+  #       nav: "projects"
 
 category_archive:
   type: liquid

@@ -1,6 +1,6 @@
 main:
   - title: "Projects"
-    url: /portfolio/
+    url: /projects/portfolio/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
@@ -12,10 +12,10 @@ main:
 
 projects:
   - title: "BikeDFW"
-    url:
+    url: /projects/BikeDFW/
   - title: "Chickens"
-    url:
+    url: /projects/chickens/
   - title: "Python"
-    url:
+    url: /projects/python/
   - title: "Travel"
-    url:
+    url: /projects/travel/

@@ -1,7 +1,6 @@
 ---
 title: "Post: Notice"
 categories:
-  - blog
   - demo
 tags:
   - mm examples

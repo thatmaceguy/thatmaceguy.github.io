@@ -1,5 +1,5 @@
 ---
-title: Backyard Chickens
+title: "Backyard Chickens"
 layout: collection
 # permalink: /projects/chickens/
 collection: chickens

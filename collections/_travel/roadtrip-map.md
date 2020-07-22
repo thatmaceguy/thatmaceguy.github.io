@@ -1,6 +1,9 @@
 ---
-permalink: /projects/roadtrip-map/
+# permalink: /projects/roadtrip-map/
 title: "Roadtrip Map"
+layout: collection
+collection: BikeDFW
+entries_layout: grid
 classes: wide
 ---
 

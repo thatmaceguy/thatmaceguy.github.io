@@ -1,5 +1,5 @@
 ---
-title: Python Projects
+title: "Python Projects"
 layout: collection
 # permalink: /projects/python/
 collection: python

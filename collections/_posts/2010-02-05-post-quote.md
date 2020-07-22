@@ -1,7 +1,6 @@
 ---
 title: "Post: Quote"
 categories:
-  - blog
   - demo
 tags:
   - mm examples
