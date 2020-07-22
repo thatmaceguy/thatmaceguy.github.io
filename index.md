@@ -1,18 +1,19 @@
 ---
-layout: splash
+layout: single # splash
 classes: wide
-title: "Home"
-# permalink: /projects/
+# title: "Home"
+permalink: /
+author_profile: true
 date: 2020-07-21T22:59:06.126Z
-header:
-  overlay_color: '#000'
-  overlay_filter: '0.5'
-  overlay_image: http://placehold.it/1200x400
-  actions:
-    - label: Download
-      url: 'https://github.com/mmistakes/minimal-mistakes/'
-  caption: 'Photo credit: [**placehold.it**](http://placehold.it/)'
-excerpt: 'Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop.'
+# header:
+#   overlay_color: '#000'
+#   overlay_filter: '0.5'
+#   overlay_image: http://placehold.it/1200x400
+#   actions:
+#     - label: Download
+#       url: 'https://github.com/mmistakes/minimal-mistakes/'
+#   caption: 'Photo credit: [**placehold.it**](http://placehold.it/)'
+# excerpt: 'Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop.'
 intro:
   - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 feature_row:
@@ -79,4 +80,3 @@ feature_row:
 {% include feature_row id="feature_row3" type="right" %}
 
 {% include feature_row id="feature_row4" type="center" %} -->
----
