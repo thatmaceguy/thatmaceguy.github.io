@@ -1,5 +1,5 @@
 ---
-layout: #splash
+layout: # splash
 classes: wide
 title: "Projects"
 permalink: /projects/
