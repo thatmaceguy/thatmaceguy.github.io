@@ -1,8 +1,8 @@
 ---
 layout: splash
 classes: wide
-title: "Projects Portfolio"
-permalink: /projects/portfolio/
+title: "Projects"
+permalink: /projects/
 date: 2020-07-21T22:59:06.126Z
 header:
   overlay_color: '#000'
