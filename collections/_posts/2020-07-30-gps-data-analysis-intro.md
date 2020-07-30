@@ -12,8 +12,7 @@ tags:
   - gpxpy
   - plotly
 ---
-Possibly the last thing the world needs is another gps analysis tool, but I have been recording my bike rides, hikes, walks, runs, and even canoe and 4x4 trips consistently since 2015, so it seems like a good data set to work from to get beyond the basics in Python, data conditioning, analysis, and visualization.
-<!--more-->
+Possibly the last thing the world needs is another gps analysis tool, <!--more-->but I have been recording my bike rides, hikes, walks, runs, and even canoe and 4x4 trips consistently since 2015, so it seems like a good data set to work from to get beyond the basics in Python, data conditioning, analysis, and visualization.
 
 ## Understanding the Data Source
 
