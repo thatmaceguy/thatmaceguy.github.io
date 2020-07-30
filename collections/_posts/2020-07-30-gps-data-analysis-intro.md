@@ -425,7 +425,7 @@ However, the Earth is not *quite* spherical. Due to its rotation, the equator bu
 
 ![WGS 84 reference frame diagram from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/WGS_84_reference_frame_%28vector_graphic%29.svg/280px-WGS_84_reference_frame_%28vector_graphic%29.svg.png)
 
-*But really* the Earth is shaped more like a slightly moldy and battered orange. Because of heterogeneities in the distribution of mass throughout the planet, caused by convection currents in the aesthenosphere and imperfect mixing of minerals. We can measure this by measureing minute variations in the graviational field across the Earth caused by local changes in density.
+*But really* the Earth is shaped more like a slightly moldy and battered orange. Because of heterogeneities in the distribution of mass throughout the planet, caused by convection currents in the aesthenosphere and imperfect mixing of minerals. We can map these blobs of higher and lower density by measuring minute variations in the graviational field across the Earth caused by local changes in density.
 {: .notice--info}
 
 The latitude and longitude reported by our GPS are [geodetic coordinates](https://en.wikipedia.org/wiki/Geodetic_datum) for points on the WGS 84 reference ellipsoid. The coordinates of the same points on a different reference ellipsoid, North American Datum 1927, for example, would be different, because the NAD 27 reference ellipsoid is a slightly different shape. It's important to understand this because any algorithm operating on these coordinates must reference the correct ellipsoid model, as does any mapping application.
