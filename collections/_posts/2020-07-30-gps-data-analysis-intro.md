@@ -82,7 +82,6 @@ ext = point.extensions[0].getchildren()[0]
 hr = int(ext.text)
 ```
 
-
 We'll pour the data from the gpx object into a [Pandas](https://pandas.pydata.org/) [dataframe object](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html), a data table or lightweight database held in memory with lots of useful high-level functions for data manipulation and analysis. 
 
 
@@ -97,7 +96,6 @@ gpx_data = gpxpy.parse(gpx_file)
 
 Let's have a look at the gpx object `gpx_data` and see how data is organized within it.
 
-
 ```python
 len_tracks = len(gpx_data.tracks)
 len_segments = len(gpx_data.tracks[0].segments)
@@ -111,11 +109,9 @@ print(f"Tracks: {len_tracks} \nSegments: {len_segments} \nPoints: {len_points} \
     Points: 3774 
     
     
-
 Looks like there is only 1 Track with 1 Segment with 3774 Points.
 
 Since the point data is burried under an unweildy path, lets make a variable as a shortcut to it. Then we'll iterate through the points and append them to a dataframe. 
-
 
 ```python
 gpx_points = gpx_data.tracks[0].segments[0].points
@@ -197,9 +193,11 @@ The Pandas function `.tz_convert()` will handle that for us. [Here's a good guid
 
 And finally, timezone aware timestamps can cause some issues with calculations, so we'll want to strip away the timezone indicator with `tz.localize()`. 
 
-**Aside:** In the future it would be good to use the coordinates of the first point to determine time zone and apply the correction automatically.{: .notice--info}
+**Aside:** In the future it would be good to use the coordinates of the first point to determine time zone and apply the correction automatically.
+{: .notice--info}
 
 Also, Pandas seems to intermittently recognize the time data and apply the correct datatype. I left the `.astype()` example in case yours doesn't.
+{: .notice--info}
 
 
 ```python
@@ -427,28 +425,28 @@ However, the Earth is not *quite* spherical. Due to its rotation, the equator bu
 
 ![WGS 84 reference frame diagram from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/WGS_84_reference_frame_%28vector_graphic%29.svg/280px-WGS_84_reference_frame_%28vector_graphic%29.svg.png)
 
-The latitude and longitude reported by our GPS are [geodetic coordinates](https://en.wikipedia.org/wiki/Geodetic_datum) for points on the WGS 84 reference ellipsoid. The coordinates of the same points on a different reference ellipsoid, North American Datum 1927, for example, would be different, because the NAD 27 reference ellipsoid is a slightly different shape. It's important to understand this beacuse any algorithm operating on these coordinates must reference the correct ellipsoid model, as does any mapping application.
+*But really* the Earth is shaped more like a slightly moldy and battered orange. Because of heterogeneities in the distribution of mass throughout the planet, caused by convection currents in the aesthenosphere and imperfect mixing of minerals. We can measure this by measureing minute variations in the graviational field across the Earth caused by local changes in density.
+{: .notice--info}
 
-The [geopy](https://geopy.readthedocs.io/en/stable/#module-geopy.distance) package contains methods to calculate the distance using either the spherical method (Haversine) or the geodesic method your choice of reference ellipsoid (e.g. Vincenty/Karney). 
+The latitude and longitude reported by our GPS are [geodetic coordinates](https://en.wikipedia.org/wiki/Geodetic_datum) for points on the WGS 84 reference ellipsoid. The coordinates of the same points on a different reference ellipsoid, North American Datum 1927, for example, would be different, because the NAD 27 reference ellipsoid is a slightly different shape. It's important to understand this because any algorithm operating on these coordinates must reference the correct ellipsoid model, as does any mapping application.
+
+The [geopy](https://geopy.readthedocs.io/en/stable/#module-geopy.distance) package contains methods to calculate the distance using either the spherical method (Haversine) or the geodesic method with your choice of reference ellipsoid (e.g. Vincenty/Karney). 
 
 
 ## Accounting for elevation change
 
 If we move X miles horizontally on a flat surface, we will have travelled X miles. If that surface were not flat, and we gained some Z miles of elevation, our true distance travelled is the hypotenuse of a triangle with sides X and Z.
 
-The latitude and longitude only give us the location on the surface of smooth ellipsoid. The GPS track we're analyzing contains elevation data and, as we saw in the Elevation vs Time plot, it is constantly changing. What is the effect of elevation on the total distance? 
+The latitude and longitude only give us the location on the surface of a smooth ellipsoid. The GPS track we're analyzing contains elevation data and, as we saw in the Elevation vs Time plot, it is constantly changing. *What is the effect of elevation on the total distance?* 
 
 Since the distance between points in our GPS track is known to be very small, we can safely ignore the complication of Earth's curvature and work out the added distance from elevation change with the [Euclidean distance formula](https://en.wikipedia.org/wiki/Euclidean_distance).
 
 
 ## Calculating Distance and speed
 
-To calculate distance and speed we will first need to calculate the distance `d` for each segment between a point and the previous point, `d_seg`. We will also need the change in elevation, `delta_elev`, to calculate the contribution of elevation to the distance and the length of time between recorsd, `delta_time`, which we'll use for calculating instantaneous speed.
+To calculate distance and speed we will first need to calculate the distance `dist` for each segment between a point and the previous point, `dist_2d`. We will also need the change in elevation, `delta_elev`, to calculate the contribution of elevation to the distance for `dist_3d`, and the length of time between recorsd, `delta_time`, which we'll use for calculating instantaneous speed.
 
-Out of curiousity, lets run the distance calculations with both spherical and geodesic models to see how different they really are at this scale.
-
-
-
+Out of curiousity, lets run the distance calculations with both spherical and geodesic models. *How different will they be at this scale?*
 
 ```python
 from geopy import distance
@@ -522,7 +520,7 @@ df['delta_geo3d'] = delta_geo3d
 df['dist_geo2d'] = dist_geo2d
 df['dist_geo3d'] = dist_geo3d
 
-# check bulk results {floor(sum(delta_time)/60)}min {int(sum(delta_time)%60)}sec \n
+# check bulk results
 print(f"Spherical Distance 2D: {dist_sph2d[-1]/1000}km \nSpherical Distance 3D: {dist_sph3d[-1]/1000}km \nElevation Correction: {(dist_sph3d[-1]) - (dist_sph2d[-1])} meters \nGeodesic Distance 2D: {dist_geo2d[-1]/1000}km \nGeodesic Distance 3D: {dist_geo3d[-1]/1000}km \nElevation Correction: {(dist_geo3d[-1]) - (dist_geo2d[-1])} meters \nModel Difference: {(dist_geo3d[-1]) - (dist_sph3d[-1])} meters \nTotal Time: {str(datetime.timedelta(seconds=sum(delta_time)))}")
 ```
 
@@ -540,10 +538,10 @@ Okay, that is definitely not the most efficient way to do that, but it'll do for
 
 As a quick check, our Total Time is exactly the same as what RWGPS reported. That's good continued confirmation that the dataset is behaving and doesn't have anything weird going on.
 
-#### Did the elevation correction make much of a difference? 
+### Did the elevation correction make much of a difference? 
 Not really, but this course also had a maximum elevation difference of around 60 meters. On a course with more topography, I would expect it to be more meaningful, but we can check that another time.
 
-#### Was there a significant difference between models? 
+### Was there a significant difference between models? 
 Again, not really, just 3 meters over ~52,000 meters travelled. Our points are quite close together relative to the curvature of either model. It is probably resonable to stick with the much simpler great_circle distance. This will be hugely beneficial when running the calculation over 5 years of GPS records.
 
 
@@ -576,7 +574,7 @@ fig_5.show()
 
 Yep, every pause is seen as a jog in the Distance vs Time plot (Time continued to increase but Distance did not). 
 
-Let's make a new column with the instantaneous speed in meters per second at each data point and check out a histogram of the results. Then we'll calculate the total moving time by excluding records below a thresholve value. We can run this test for a series of thresholds and see which aligns with RideWithGPS.
+Let's make a new column with the instantaneous speed in meters per second at each data point and check out a histogram of the results. Then we'll calculate the total moving time by excluding records below a threshold value. We can run this test for a series of thresholds and see which aligns with RideWithGPS.
 
 
 ```python
@@ -594,9 +592,14 @@ fig_8.show()
 
 
 
-I love a Gausian Distribution. Let's lop off that stoppage time at the low end and balance it out. Average human [walking speed](https://en.wikipedia.org/wiki/Walking#:~:text=Although%20walking%20speeds%20can%20vary,miles%20per%20hour%20(mph).) is about 1.4 meters per second. I've had rides that required some walking, so the threshold must be below that. 
+I love a Gausian Distribution. 
 
-**Note:** Python's `range()` won't accept floats, so I brought in `numpy` to handle it rather than write a list of thresholds manually{: .notice--info}
+Let's lop off that stoppage time at the low end and balance it out. 
+
+Average human [walking speed](https://en.wikipedia.org/wiki/Walking#:~:text=Although%20walking%20speeds%20can%20vary,miles%20per%20hour%20(mph).) is about 1.4 meters per second. I've had rides that required some walking, so the threshold must be below that. 
+
+**Note:** Python's `range()` won't accept floats, so I brought in `numpy` to handle it rather than write a list of thresholds manually.
+{: .notice--info}
 
 
 ```python
@@ -631,10 +634,10 @@ for threshold in np.arange(0.1, 2.1, 0.1): # delta-distance thresholds from 0 to
 
 It looks like RWGPS is using a threshold of 0.9 m/s instantaneous speed to filter out stoppage time. 
 
-## Average Speed and Movign Average
+## Average Speed and Moving Average
 Let's apply the same threshold and calculate Moving Time and Average Moving Speed.
 
-We'll start by making a new dataframe `df_moving` with only the records above the threshold. This simplifies the arguments we hand to our functions, but it also takes up more memory, May not be the best way to handle a very large dataset.
+We'll start by making a new dataframe `df_moving` with only the records above the threshold. This simplifies the arguments we hand to our functions, but it also takes up more memory. May not be the best way to handle a very large dataset.
 
 
 ```python
@@ -722,7 +725,7 @@ print(f"Elevation Loss: {round(sum(df[df['delta_elev'] < 0]['delta_elev']), 2)}"
     Elevation Loss: -381.4
     
 
-There is, actually, he used it earlier and it's pretty slick. It's called boolean indexing. `df['delta_elev'] > 0` returns the row indices for every value in `delta_elev` that is positive. We used those indices in the next level up to select the values we want to sum, e.g. `df[idx]['delta_elev']` and sum them together. I wrapped in `round()` to clean up the output.
+There is, actually, he used it earlier and it's pretty slick. It's called boolean indexing. `df['delta_elev'] > 0` returns the row indices for every value in `delta_elev` that is positive. We used those indices in the next level up to select the values we want to sum, e.g. `df[idx]['delta_elev']` and sum them together. I wrapped it in `round()` to clean up the output.
 
 References:
 * [Pandas-Docs Boolean Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-indexing)
@@ -739,11 +742,15 @@ We've been able to replicate most of the metrics that sites like Strava, Garmin,
 * Average Speed
 * Moving Average Speed
 
-Average Pace and Moving pace are transformatons of Average Speed and Moving Speed. Max Grade and Average Grade are simple calculations on `delta_elev` and segment length, as are Ascent Time and Descent Time. VAM and Calories will take some further research to understand.
+Average Pace and Moving pace are transformatons of Average Speed and Moving Speed. 
+
+Max Grade and Average Grade are simple calculations on `delta_elev` and segment length, as are Ascent Time and Descent Time. 
+
+VAM and Calories will take some further research to understand.
 
 ## Next Steps
-In the long term, we'll analyse a large number of `.gpx` files. There's a tongue-in-cheek axiom in cycling that goes "It doesn't get easier, you just go faster." Seems like an easy one to test since I've got 5 years of cycling records to work with.
+In the long term, we'll analyze a large number of `.gpx` files. There's a tongue-in-cheek axiom in cycling that goes "It doesn't get easier, you just go faster." Seems like an easy one to test since I've got 5 years of cycling records to work with.
 
-The challenge will be handling that volume of points efficiently. At the least, I don't want to read-in hundresd of `.gpx` over and over while work on the code. Some kind of external storage like JSON or CSV would be a simple solution, but an external database like PostGIS (built on PostgreSQL) might be better, and I'd learn some database handling finally. As an added bonus, it can be read by QGIS.
+The challenge will be handling that volume of points efficiently. At the least, I don't want to read-in hundreds of `.gpx` over and over while working out the code. Some kind of external storage like JSON or CSV would be a simple solution, but an external database like PostGIS (built on PostgreSQL) might be better, and I'd learn some database handling finally. As an added bonus, it can be read by QGIS.
 
-Once all the .gpx are usefully gathered and today's code has been collapsed and made more efficient, we'll take a crack at the ever satisfying heatmap, probably wtih `folio` and Mapbox. 
+Once all the .gpx are usefully gathered and today's code has been collapsed and made more efficient, we'll take a crack at the ever satisfying heatmap, probably with `folio` and Mapbox. 
