@@ -1,6 +1,6 @@
 ---
 layout: single # splash
-# classes: wide
+classes: wide
 title: "Projects"
 permalink: /projects/
 date: 2020-07-21T22:59:06.126Z
