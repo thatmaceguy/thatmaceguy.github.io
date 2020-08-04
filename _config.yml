@@ -63,7 +63,7 @@ plugins:
 author:
   name   : "Christopher Mace"
   avatar : "/assets/images/profile_pic_500w.png"
-  bio    : "Geoscientist — Cyclist — DIYer"
+  bio    : "Geoscientist  Cyclist  DIYer"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
