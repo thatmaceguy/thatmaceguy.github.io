@@ -89,7 +89,7 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/thatmaceguy"
-      - label: "Strava"
+    - label: "Strava"
       icon: "fab fa-fw fa-strava"
       url: "http://strava.com/athletes/2568239"
 
