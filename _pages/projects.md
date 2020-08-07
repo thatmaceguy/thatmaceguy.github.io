@@ -3,7 +3,7 @@ layout: single # splash
 classes: wide
 title: "Projects"
 permalink: /projects/
-date: 2020-07-21T22:59:06.126Z
+date: 2020-08-06
 # header:
 #   overlay_color: '#000'
 #   overlay_filter: '0.5'
@@ -16,30 +16,30 @@ date: 2020-07-21T22:59:06.126Z
 # intro:
 #   - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 feature_row:
-  - image_path: http://placehold.it/600x400
-    alt: placeholder image 1
+  - image_path: /assets/images/bikedfw_logo.jpg
+    alt: BikeDFW Logo
     title: BikeDFW
-    excerpt: This is some sample content that goes here with **Markdown** formatting.
+    excerpt: Example and test embeds of maps and calendars for the Community Maps Project and BikeDFW.org.
     url: '/projects/BikeDFW/'
     btn_label: View Project
     btn_class: btn--primary
   - image_path: http://placehold.it/600x400
-    image_caption: 'Image courtesy of [placehold.it](http://placehold.it/)'
+    #image_caption: 'Image courtesy of [placehold.it](http://placehold.it/)'
     alt: placeholder image 2
     title: Chickens
-    excerpt: This is some sample content that goes here with **Markdown** formatting.
+    excerpt: Some project write-ups and photos from keeping backyard chickens.
     url: '/projects/chickens/'
     btn_label: View Project
     btn_class: btn--primary
-  - image_path: http://placehold.it/600x400
+  - image_path: https://photos.app.goo.gl/8G2XvHuiQSwH5V2M9
     title: Travel
-    excerpt: This is some sample content that goes here with **Markdown** formatting.
+    excerpt: Maps, mostly.
     url: '/projects/travel/'
     btn_label: View Project
     btn_class: btn--primary
   - image_path: http://placehold.it/600x400
-    title: Python
-    excerpt: This is some sample content that goes here with **Markdown** formatting.
+    title: Code
+    excerpt: Scratch space and summaries of programming and data analysis training projects.
     url: '/projects/Python/'
     btn_label: View Project
     btn_class: btn--primary
